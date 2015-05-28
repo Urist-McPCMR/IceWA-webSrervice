@@ -1,0 +1,5 @@
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\bin\IceWAService.dll.config
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\bin\IceWAService.dll
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\bin\IceWAService.pdb
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\obj\Release\IceWAService.dll
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\obj\Release\IceWAService.pdb

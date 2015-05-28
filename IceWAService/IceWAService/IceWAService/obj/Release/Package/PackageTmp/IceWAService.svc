@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="IceWAService.IceWAService" CodeBehind="IceWAService.svc.cs" %>

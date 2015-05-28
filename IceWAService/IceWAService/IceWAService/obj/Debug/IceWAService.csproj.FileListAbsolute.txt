@@ -1,0 +1,20 @@
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\bin\IceWAService.dll.config
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\bin\IceWAService.dll
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\bin\IceWAService.pdb
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\bin\MySql.Data.dll
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\obj\Debug\IceWAService.dll
+E:\myClasses\Semester Two\Develop Mobile Apps\IceWA\IceWAService\IceWAService\obj\Debug\IceWAService.pdb
+E:\IceWAService\IceWAService\IceWAService\bin\IceWAService.dll.config
+E:\IceWAService\IceWAService\IceWAService\bin\IceWAService.dll
+E:\IceWAService\IceWAService\IceWAService\bin\IceWAService.pdb
+E:\IceWAService\IceWAService\IceWAService\bin\MySql.Data.dll
+E:\IceWAService\IceWAService\IceWAService\obj\Debug\IceWAService.dll
+E:\IceWAService\IceWAService\IceWAService\obj\Debug\IceWAService.pdb
+E:\IceWAService\IceWAService\IceWAService\obj\Debug\IceWAService.csprojResolveAssemblyReference.cache
+F:\IceWAService\IceWAService\IceWAService\obj\Debug\IceWAService.csprojResolveAssemblyReference.cache
+F:\IceWAService\IceWAService\IceWAService\obj\Debug\IceWAService.dll
+F:\IceWAService\IceWAService\IceWAService\obj\Debug\IceWAService.pdb
+F:\IceWAService\IceWAService\IceWAService\bin\IceWAService.dll.config
+F:\IceWAService\IceWAService\IceWAService\bin\IceWAService.dll
+F:\IceWAService\IceWAService\IceWAService\bin\IceWAService.pdb
+F:\IceWAService\IceWAService\IceWAService\bin\MySql.Data.dll
