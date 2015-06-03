@@ -5,10 +5,11 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Data;
+using System.ServiceModel.Web;
 
 namespace IceWAService
 {
-        [ServiceContract]
+        [ServiceContract(Namespace = "http://student.mydesign.central.wa.edu.au/IceWA_Virtual")]
     public interface IIceWAService
     {
 
@@ -16,7 +17,8 @@ namespace IceWAService
 		string[] getGames();
 
 		[OperationContract]
-		String[] getVenue();
+        [WebGet(UriTemplate = "getVenue")]
+		IceWAService.Content getVenue();
 
 		[OperationContract]
 		String[] getGamePeriods();

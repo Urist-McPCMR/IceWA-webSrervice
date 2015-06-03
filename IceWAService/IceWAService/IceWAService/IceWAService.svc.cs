@@ -9,6 +9,7 @@ using System.Web.Services;
 using System.Data;
 using System.Threading;
 using System.Globalization;
+using System.ServiceModel.Web;
 
 //Done by jack kitchener
 
@@ -88,9 +89,20 @@ namespace IceWAService
             }
 		}
 
+        [DataContract]
+        public class Content
+        {
+            [DataMember]
+            public string[] content { get; set; }
+        }
+
 		[WebMethod]
-        public String[] getVenue()
+        
+        public Content getVenue()
 		{
+            Content lols = new Content();
+            lols.content = new String[] { "The databse is broken" };
+            return lols;
 			String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
 			try
 			{
@@ -124,7 +136,9 @@ namespace IceWAService
 						pos+=10;
 					}
 					returns[pos] = "[END]";
-					return returns;
+                    Content lol = new Content();
+                    lol.content = returns;
+                    return lol;
 
 
 				}
@@ -132,7 +146,9 @@ namespace IceWAService
 			catch (Exception ex)
 			{
 				Console.Write(ex.StackTrace);
-				return new String[]{"you fucked up"};
+                Content lol = new Content();
+                lol.content = new String[] { "you fucked up" };
+				return lol;
 			}
 
 		}

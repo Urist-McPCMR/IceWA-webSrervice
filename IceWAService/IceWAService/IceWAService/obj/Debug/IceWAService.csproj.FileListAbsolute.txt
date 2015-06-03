@@ -18,3 +18,10 @@ F:\IceWAService\IceWAService\IceWAService\bin\IceWAService.dll.config
 F:\IceWAService\IceWAService\IceWAService\bin\IceWAService.dll
 F:\IceWAService\IceWAService\IceWAService\bin\IceWAService.pdb
 F:\IceWAService\IceWAService\IceWAService\bin\MySql.Data.dll
+C:\Users\041402465\Desktop\GitHub\IceWA-webSrervice\IceWAService\IceWAService\IceWAService\bin\IceWAService.dll.config
+C:\Users\041402465\Desktop\GitHub\IceWA-webSrervice\IceWAService\IceWAService\IceWAService\bin\IceWAService.dll
+C:\Users\041402465\Desktop\GitHub\IceWA-webSrervice\IceWAService\IceWAService\IceWAService\bin\IceWAService.pdb
+C:\Users\041402465\Desktop\GitHub\IceWA-webSrervice\IceWAService\IceWAService\IceWAService\bin\MySql.Data.dll
+C:\Users\041402465\Desktop\GitHub\IceWA-webSrervice\IceWAService\IceWAService\IceWAService\obj\Debug\IceWAService.csprojResolveAssemblyReference.cache
+C:\Users\041402465\Desktop\GitHub\IceWA-webSrervice\IceWAService\IceWAService\IceWAService\obj\Debug\IceWAService.dll
+C:\Users\041402465\Desktop\GitHub\IceWA-webSrervice\IceWAService\IceWAService\IceWAService\obj\Debug\IceWAService.pdb
