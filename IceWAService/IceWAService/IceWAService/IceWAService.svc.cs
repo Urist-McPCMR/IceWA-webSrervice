@@ -21,7 +21,7 @@ namespace IceWAService
     {
 
 		[WebMethod]
-		public string[] getGames()
+		public Content getGames()
 		{
 			String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
 			try
@@ -30,37 +30,38 @@ namespace IceWAService
 				{
 					cnn.Open();
 
-					String sql = String.Format("SELECT * FROM Game WHERE Date >= Convert(datetime,'"+DateTime.Now.Year+DateTime.Now.Month+DateTime.Now.Day+"');");
+					String sql = String.Format("SELECT * FROM game WHERE date > "+DateTime.Now.Year+"-"+DateTime.Now.Month+"-"+(DateTime.Now.Day-1)+";");
 					// String sql = String.Format("SELECT schedule.ID, t1.name, t2.name, schedule.time, location.name FROM `schedule`  inner join `team` as `t1` on t1.id = schedule.homeID inner join `location` on location.ID = schedule.locationID inner join `team` as `t2` on t2.id = schedule.awayID;");
 
 					MySqlDataAdapter da = new MySqlDataAdapter(sql, cnn);
 					DataSet ds = new DataSet();
 					da.Fill(ds, "Game");
 
-					string[] returns = new string[1+(ds.Tables[0].Rows.Count*13)];
+					string[] returns = new string[1+(ds.Tables[0].Rows.Count*11)];
                     
 					int pos = 0;
 
 					foreach(DataRow row in ds.Tables[0].Rows)
 					{
-						returns[pos] = "[Game "+(pos/13)+1+"]";
+						returns[pos] = "[Game "+((pos/11)+1)+"]";
                     	returns[pos+1] = "ID " + row[0].ToString();
                     	returns[pos+2] = "VENUE_ID " + row[1].ToString();
 						returns[pos+3] = "HOME_TEAM_ID " + row[2].ToString();
 						returns[pos+4] = "AWAY_TEAM_ID " + row[3].ToString();
-						returns[pos+5] = "HOME_TEAM_MANAGER_ID " + row[4].ToString();
-						returns[pos+6] = "AWAY_TEAM_MANAGER_ID " + row[5].ToString();
-						returns[pos+7] = "REFEREE_ID " + row[6].ToString();
-						returns[pos+8] = "LINESMAN_1_ID " + row[7].ToString();
-						returns[pos+9] = "LINESMAN_2_ID " + row[8].ToString();
-						returns[pos+10] = "SCOREKEEPER_ID " + row[9].ToString();
-						returns[pos+11] = "DATE " + row[10].ToString();
-						returns[pos+12] = "\n";
-						pos+=13;
+						returns[pos+5] = "REFEREE_ID " + row[4].ToString();
+						returns[pos+6] = "LINESMAN_1_ID " + row[5].ToString();
+						returns[pos+7] = "LINESMAN_2_ID " + row[6].ToString();
+						returns[pos+8] = "SCOREKEEPER_ID " + row[7].ToString();
+						returns[pos+9] = "DATE " + row[8].ToString();
+						returns[pos+10] = "#221155#";
+						pos+=11;
 					}
 
-					returns[pos+1] = "[END]";
-
+					
+                    returns[pos+1] = "[END]";
+                    Content lol = new Content();
+                    lol.content = returns;
+                    return lol;
                    
 
 				
@@ -77,7 +78,7 @@ namespace IceWAService
 
 					// Restore original culture.
 					
-                    return returns;
+                    return lol;
 
 
                 }
@@ -85,7 +86,9 @@ namespace IceWAService
             catch (Exception ex)
             {
                 Console.Write(ex.StackTrace);
-				return new String[]{"you fucked up"};
+                Content lol = new Content();
+                lol.content = new String[] { "you fucked up",ex.Message };
+                return lol;
             }
 		}
 
@@ -100,9 +103,6 @@ namespace IceWAService
         
         public Content getVenue()
 		{
-            Content lols = new Content();
-            lols.content = new String[] { "The databse is broken" };
-            return lols;
 			String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
 			try
 			{
@@ -132,10 +132,11 @@ namespace IceWAService
 						returns[pos+6] = "CITY " + row[5].ToString();
 						returns[pos+7] = "STATE " + row[6].ToString();
 						returns[pos+8] = "COUNTRY " + row[7].ToString();
-						returns[pos+9] = "\n";
+                        returns[pos + 9] = "#221155#";
 						pos+=10;
 					}
-					returns[pos] = "[END]";
+                
+					returns[pos+1] = "[END]";
                     Content lol = new Content();
                     lol.content = returns;
                     return lol;
@@ -168,7 +169,7 @@ namespace IceWAService
 		}
 
 		[WebMethod]
-        public String[] getTeams()
+        public Content getTeams()
 		{
             String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
             try
@@ -195,11 +196,13 @@ namespace IceWAService
                         returns[pos + 2] = "NAME " + row[1].ToString();
                         returns[pos + 3] = "IMAGE " + row[2].ToString();
                         returns[pos + 4] = "DIVISION_ID " + row[3].ToString();
-                        returns[pos + 5] = "\n";
+                        returns[pos + 5] = "#221155#";
                         pos += 6;
                     }
-                    returns[pos] = "[END]";
-                    return returns;
+                    returns[pos+1] = "[END]";
+                    Content lol = new Content();
+                    lol.content = returns;
+                    return lol;
 
 
                 }
@@ -207,12 +210,14 @@ namespace IceWAService
             catch (Exception ex)
             {
                 Console.Write(ex.StackTrace);
-                return new String[] { "you fucked up" };
+                Content lol = new Content();
+                lol.content = new String[] { "you fucked up" };
+                return lol;
             }
 		}
 
 		[WebMethod]
-        public String[] getPerson()
+        public Content getPerson()
 		{
             String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
             try
@@ -238,11 +243,13 @@ namespace IceWAService
                         returns[pos + 1] = "ID " + row[0].ToString();
                         returns[pos + 2] = "NAME " + row[1].ToString();
                         returns[pos + 3] = "IDENTIFIER_ID " + row[2].ToString();
-                        returns[pos + 4] = "\n";
-                        pos += 4;
+                        returns[pos + 4] = "#221155#";
+                        pos += 5;
                     }
                     returns[pos] = "[END]";
-                    return returns;
+                    Content lol = new Content();
+                    lol.content = returns;
+                    return lol;
 
 
                 }
@@ -250,12 +257,14 @@ namespace IceWAService
             catch (Exception ex)
             {
                 Console.Write(ex.StackTrace);
-                return new String[] { "you fucked up" };
+                Content lol = new Content();
+                lol.content = new String[] { "you fucked up" };
+                return lol;
             }
 		}
 
 		[WebMethod]
-        public String[] getTeamPersonNumber(int id)
+        public Content getTeamPersonNumber(string id)
 		{
             String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
             try
@@ -264,7 +273,7 @@ namespace IceWAService
                 {
                     cnn.Open();
 
-                    String sql = String.Format("SELECT Number FROM Team_Person_Number WHERE Id = '"+id+ "';");
+                    String sql = String.Format("SELECT * FROM Team_Person_Number WHERE Id = '"+Int32.Parse(id)+ "';");
                     // String sql = String.Format("SELECT schedule.ID, t1.name, t2.name, schedule.time, location.name FROM `schedule`  inner join `team` as `t1` on t1.id = schedule.homeID inner join `location` on location.ID = schedule.locationID inner join `team` as `t2` on t2.id = schedule.awayID;");
 
                     MySqlDataAdapter da = new MySqlDataAdapter(sql, cnn);
@@ -277,15 +286,17 @@ namespace IceWAService
 
                     foreach (DataRow row in ds.Tables[0].Rows)
                     {
-                        returns[pos] = "[TEAM PERSON NYMBER]";
+                        returns[pos] = "[TEAM PERSON NUMBER]";
                         returns[pos + 1] = "ID " + row[0].ToString();
                         returns[pos + 2] = "NAME " + row[1].ToString();
                         returns[pos + 3] = "IDENTIFIER_ID " + row[2].ToString();
-                        returns[pos + 4] = "\n";
-                        pos += 4;
+                        returns[pos + 4] = "#221155#";
+                        pos += 5;
                     }
-                    returns[pos] = "[END]";
-                    return returns;
+                    returns[pos+1] = "[END]";
+                    Content lol = new Content();
+                    lol.content = returns;
+                    return lol;
 
 
                 }
@@ -293,12 +304,14 @@ namespace IceWAService
             catch (Exception ex)
             {
                 Console.Write(ex.StackTrace);
-                return new String[] { "you fucked up" };
+                Content lol = new Content();
+                lol.content = new String[] { "you fucked up" };
+                return lol;
             }
 		}
 
 		[WebMethod]
-        public String[] getGameTeamPerson(int id)
+        public Content getGameTeamPerson(String id)
 		{
             String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
             try
@@ -307,7 +320,7 @@ namespace IceWAService
                 {
                     cnn.Open();
 
-                    String sql = String.Format("SELECT * FROM Person;");
+                    String sql = String.Format("SELECT * FROM Person WHERE id ="+Int32.Parse(id)+";");
                     // String sql = String.Format("SELECT schedule.ID, t1.name, t2.name, schedule.time, location.name FROM `schedule`  inner join `team` as `t1` on t1.id = schedule.homeID inner join `location` on location.ID = schedule.locationID inner join `team` as `t2` on t2.id = schedule.awayID;");
 
                     MySqlDataAdapter da = new MySqlDataAdapter(sql, cnn);
@@ -324,11 +337,13 @@ namespace IceWAService
                         returns[pos + 1] = "ID " + row[0].ToString();
                         returns[pos + 2] = "NAME " + row[1].ToString();
                         returns[pos + 3] = "IDENTIFIER_ID " + row[2].ToString();
-                        returns[pos + 4] = "\n";
+                        returns[pos + 4] = "#221155#";
                         pos += 4;
                     }
-                    returns[pos] = "[END]";
-                    return returns;
+                    returns[pos+1] = "[END]";
+                    Content lol = new Content();
+                    lol.content = returns;
+                    return lol;
 
 
                 }
@@ -336,7 +351,9 @@ namespace IceWAService
             catch (Exception ex)
             {
                 Console.Write(ex.StackTrace);
-                return new String[] { "you fucked up" };
+                Content lol = new Content();
+                lol.content = new String[] { "you fucked up" };
+                return lol;
             }
 		}
 

@@ -14,10 +14,11 @@ namespace IceWAService
     {
 
 		[OperationContract]
-		string[] getGames();
+            [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "getGames")]
+            IceWAService.Content getGames();
 
 		[OperationContract]
-        [WebGet(UriTemplate = "getVenue")]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "getVenue")]
 		IceWAService.Content getVenue();
 
 		[OperationContract]
@@ -28,17 +29,21 @@ namespace IceWAService
 		[OperationContract]
 		String[] getGameNotes();
 
-		[OperationContract]
-		String[] getTeams();
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "getTeams")]
+		IceWAService.Content getTeams();
 
-		[OperationContract]
-		String[] getPerson();
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "getPerson")]
+        IceWAService.Content getPerson();
 
-		[OperationContract]
-		String[] getTeamPersonNumber(int id);
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "getTeamPersonNumber/{id}")]
+        IceWAService.Content getTeamPersonNumber(String id);
 
-		[OperationContract]
-		String[] getGameTeamPerson(int id);
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "getGameTeamPerson/{id}")]
+        IceWAService.Content getGameTeamPerson(String id);
 
 		[OperationContract]
 		String[] getGamePersonAction();
