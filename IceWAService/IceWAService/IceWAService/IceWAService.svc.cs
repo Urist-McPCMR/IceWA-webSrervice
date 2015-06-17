@@ -58,7 +58,7 @@ namespace IceWAService
 					}
 
 					
-                    returns[pos+1] = "[END]";
+                    returns[pos] = "[END]";
                     Content lol = new Content();
                     lol.content = returns;
                     return lol;
@@ -136,7 +136,7 @@ namespace IceWAService
 						pos+=10;
 					}
                 
-					returns[pos+1] = "[END]";
+					returns[pos] = "[END]";
                     Content lol = new Content();
                     lol.content = returns;
                     return lol;
@@ -199,7 +199,7 @@ namespace IceWAService
                         returns[pos + 5] = "#221155#";
                         pos += 6;
                     }
-                    returns[pos+1] = "[END]";
+                    returns[pos] = "[END]";
                     Content lol = new Content();
                     lol.content = returns;
                     return lol;
@@ -293,7 +293,7 @@ namespace IceWAService
                         returns[pos + 4] = "#221155#";
                         pos += 5;
                     }
-                    returns[pos+1] = "[END]";
+                    returns[pos] = "[END]";
                     Content lol = new Content();
                     lol.content = returns;
                     return lol;
@@ -338,9 +338,9 @@ namespace IceWAService
                         returns[pos + 2] = "NAME " + row[1].ToString();
                         returns[pos + 3] = "IDENTIFIER_ID " + row[2].ToString();
                         returns[pos + 4] = "#221155#";
-                        pos += 4;
+                        pos += 5;
                     }
-                    returns[pos+1] = "[END]";
+                    returns[pos] = "[END]";
                     Content lol = new Content();
                     lol.content = returns;
                     return lol;
